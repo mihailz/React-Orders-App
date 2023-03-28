@@ -1,1 +1,11 @@
+.loader {
+    text-align: center;
+    color: white;
+    padding-top: 120px;
+}
 
+.error {
+    text-align: center;
+    color: red;
+    padding-top: 120px;
+}

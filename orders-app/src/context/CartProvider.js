@@ -58,6 +58,10 @@ const cartReducer = (state, action) => {
             totalAmount: newTotalAmount,
         };
     }
+
+    if (action.type === 'CLEAR') {
+        return defaultCartState;
+    }
     return defaultCartState;
 };
 
@@ -75,11 +79,16 @@ const CartProvider = props => {
         dispatchCartState({type: 'REMOVE_ITEM', id: id});
     };
 
+    const clearCartItemsHandler = () => {
+        dispatchCartState({type: 'CLEAR'});
+    }
+
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
-        removeItem: removeItemFromCartHandler
+        removeItem: removeItemFromCartHandler,
+        clearCart: clearCartItemsHandler
     };
 
     // We need to provide the value as an object.
